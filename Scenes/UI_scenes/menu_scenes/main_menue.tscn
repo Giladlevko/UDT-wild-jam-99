@@ -1,0 +1,149 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfapw7qac4mu5"]
+
+[ext_resource type="Theme" uid="uid://rgyna2d0tcac" path="res://UI_themes/dark_theme.tres" id="1_n2h7q"]
+[ext_resource type="Script" uid="uid://c02am5adcvdoq" path="res://Scripts/UI_scripts/menu_scripts/main_menue.gd" id="1_x4vq2"]
+[ext_resource type="PackedScene" uid="uid://clovevcxnu2qx" path="res://Scenes/UI_scenes/audio_controler.tscn" id="3_e4u0r"]
+
+[node name="MainMenue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_n2h7q")
+script = ExtResource("1_x4vq2")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="game_title" type="Panel" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/game_title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -11.5
+offset_right = 66.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Game mame"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="buttons_container" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="play_button" type="Button" parent="Panel/MarginContainer/VBoxContainer/buttons_container"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "Play!"
+
+[node name="audio_button" type="Button" parent="Panel/MarginContainer/VBoxContainer/buttons_container"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "Audio Settings!"
+
+[node name="credits_button" type="Button" parent="Panel/MarginContainer/VBoxContainer/buttons_container"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "Creadits!"
+
+[node name="quit_button" type="Button" parent="Panel/MarginContainer/VBoxContainer/buttons_container"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "Quit!"
+
+[node name="contols_cont" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/contols_cont"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/contols_cont"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="controls_panel" type="Panel" parent="Panel/MarginContainer/contols_cont/MarginContainer"]
+visible = false
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/contols_cont/MarginContainer/controls_panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/contols_cont/MarginContainer/controls_panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Controls:"
+
+[node name="help_button_container" type="MarginContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 20
+
+[node name="help_button" type="Button" parent="Panel/MarginContainer/help_button_container"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Help?"
+
+[node name="audio_controler" parent="Panel/MarginContainer" instance=ExtResource("3_e4u0r")]
+visible = false
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/buttons_container/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/buttons_container/audio_button" to="." method="_on_audio_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/buttons_container/credits_button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/buttons_container/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/help_button_container/help_button" to="." method="_on_help_button_pressed"]

@@ -1,0 +1,175 @@
+[gd_scene load_steps=5 format=3 uid="uid://clovevcxnu2qx"]
+
+[ext_resource type="Theme" uid="uid://rgyna2d0tcac" path="res://UI_themes/dark_theme.tres" id="1_kmtba"]
+[ext_resource type="Script" uid="uid://cqohh8e5coacq" path="res://Scripts/UI_scripts/audio_controler.gd" id="1_onfh8"]
+[ext_resource type="AudioStream" uid="uid://chph6mnf2jvix" path="res://Assets/UI_assets/button_hover_sfx_example.ogg" id="3_velpv"]
+[ext_resource type="AudioStream" uid="uid://c8y4h362h8bn6" path="res://Assets/UI_assets/sbutton_click_sfx_example.ogg" id="4_c6csw"]
+
+[node name="audio_controler" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_kmtba")
+script = ExtResource("1_onfh8")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -175.0
+offset_right = 150.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -8.0
+offset_right = 150.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kmtba")
+text = "Audio Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator0" type="HSeparator" parent="Panel/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="global_control" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="title" type="Label" parent="Panel/VBoxContainer/global_control"]
+layout_mode = 2
+theme = ExtResource("1_kmtba")
+text = "Global:  50%"
+horizontal_alignment = 1
+
+[node name="global_slider" type="HSlider" parent="Panel/VBoxContainer/global_control"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+value = 50.0
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="music_control" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="title" type="Label" parent="Panel/VBoxContainer/music_control"]
+layout_mode = 2
+theme = ExtResource("1_kmtba")
+text = "Music:  50%"
+horizontal_alignment = 1
+
+[node name="music_slider" type="HSlider" parent="Panel/VBoxContainer/music_control"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+value = 50.0
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="sfx_control" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="title" type="Label" parent="Panel/VBoxContainer/sfx_control"]
+layout_mode = 2
+theme = ExtResource("1_kmtba")
+text = "SFX:  50%"
+horizontal_alignment = 1
+
+[node name="sfx_slider" type="HSlider" parent="Panel/VBoxContainer/sfx_control"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+value = 50.0
+
+[node name="HSeparator3" type="HSeparator" parent="Panel/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ui_control" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="title" type="Label" parent="Panel/VBoxContainer/ui_control"]
+layout_mode = 2
+theme = ExtResource("1_kmtba")
+text = "UI:  50%"
+horizontal_alignment = 1
+
+[node name="ui_slider" type="HSlider" parent="Panel/VBoxContainer/ui_control"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+value = 50.0
+
+[node name="button_cont" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+offset_right = 100.0
+offset_bottom = 40.0
+theme_override_constants/margin_top = -28
+
+[node name="close_button" type="Button" parent="Panel/button_cont"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Close"
+
+[node name="button_audio" type="Node" parent="."]
+
+[node name="click_sfx" type="AudioStreamPlayer" parent="button_audio"]
+stream = ExtResource("3_velpv")
+volume_db = -17.0
+
+[node name="hover_sfx" type="AudioStreamPlayer" parent="button_audio"]
+stream = ExtResource("4_c6csw")
+volume_db = -20.0
+
+[connection signal="value_changed" from="Panel/VBoxContainer/global_control/global_slider" to="." method="_on_global_slider_value_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/music_control/music_slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/sfx_control/sfx_slider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/ui_control/ui_slider" to="." method="_on_ui_slider_value_changed"]
+[connection signal="pressed" from="Panel/button_cont/close_button" to="." method="_on_close_button_pressed"]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://c0r4ebldeb8r"]
+
+[ext_resource type="Script" uid="uid://bids4wsqcbdfo" path="res://UI_scripts/text_box/character_data.gd" id="1_11nmv"]
+
+[resource]
+script = ExtResource("1_11nmv")
+name = "Gremlin the 2nd"
+description = "The cave gremlin"
+metadata/_custom_type_script = "uid://bids4wsqcbdfo"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=3 format=3 uid="uid://dyifvc0eojljr"]
+
+[ext_resource type="Texture2D" uid="uid://be0gljgjr6v8x" path="res://icon.svg" id="1_6erkb"]
+[ext_resource type="Script" uid="uid://bids4wsqcbdfo" path="res://UI_scripts/text_box/character_data.gd" id="1_7uvk2"]
+
+[resource]
+script = ExtResource("1_7uvk2")
+name = "Creator"
+portrait = ExtResource("1_6erkb")
+description = "The Creator of the text box"
+metadata/_custom_type_script = "uid://bids4wsqcbdfo"

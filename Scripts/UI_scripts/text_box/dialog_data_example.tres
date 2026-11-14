@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=12 format=3 uid="uid://dhn5rikla81w0"]
+
+[ext_resource type="Script" uid="uid://bhqovwl8pw33d" path="res://Scripts/UI_scripts/text_box/dialog_entry.gd" id="1_wshnu"]
+[ext_resource type="Script" uid="uid://by7pr2lmkc3eq" path="res://Scripts/UI_scripts/text_box/dialog_data.gd" id="2_44i2i"]
+[ext_resource type="Script" uid="uid://bxrvun5bs65ck" path="res://Scripts/UI_scripts/text_box/dialog_line.gd" id="2_ll1qk"]
+[ext_resource type="Resource" uid="uid://dyifvc0eojljr" path="res://Scripts/UI_scripts/text_box/characters/character_example.tres" id="3_ll1qk"]
+[ext_resource type="Resource" uid="uid://c0r4ebldeb8r" path="res://Scripts/UI_scripts/text_box/characters/character_example2.tres" id="4_jtagx"]
+
+[sub_resource type="Resource" id="Resource_jtagx"]
+script = ExtResource("2_ll1qk")
+speaker = ExtResource("3_ll1qk")
+lines = Array[String](["Hello! I am the Creator!", "I hope this text box will serve you well!"])
+metadata/_custom_type_script = "uid://bxrvun5bs65ck"
+
+[sub_resource type="Resource" id="Resource_44i2i"]
+script = ExtResource("2_ll1qk")
+speaker = ExtResource("4_jtagx")
+lines = Array[String](["Hello!  I am the cave Gremlin!", "I Helped in the making of this...", "What is it again?"])
+metadata/_custom_type_script = "uid://bxrvun5bs65ck"
+
+[sub_resource type="Resource" id="Resource_ll1qk"]
+script = ExtResource("2_ll1qk")
+speaker = ExtResource("3_ll1qk")
+lines = Array[String](["Text box... for the last time it is a...", "TEXT BOX!!!"])
+metadata/_custom_type_script = "uid://bxrvun5bs65ck"
+
+[sub_resource type="Resource" id="Resource_5lh8w"]
+script = ExtResource("2_ll1qk")
+speaker = ExtResource("4_jtagx")
+lines = Array[String](["Right right I knew that...", "I helped in the making of this thing!"])
+metadata/_custom_type_script = "uid://bxrvun5bs65ck"
+
+[sub_resource type="Resource" id="Resource_anqsn"]
+script = ExtResource("2_ll1qk")
+speaker = ExtResource("3_ll1qk")
+lines = Array[String](["Unbelievable..."])
+metadata/_custom_type_script = "uid://bxrvun5bs65ck"
+
+[sub_resource type="Resource" id="Resource_ydsg3"]
+script = ExtResource("1_wshnu")
+Dialog = Array[ExtResource("2_ll1qk")]([SubResource("Resource_jtagx"), SubResource("Resource_44i2i"), SubResource("Resource_ll1qk"), SubResource("Resource_5lh8w"), SubResource("Resource_anqsn")])
+metadata/_custom_type_script = "uid://bhqovwl8pw33d"
+
+[resource]
+script = ExtResource("2_44i2i")
+entries = Dictionary[String, ExtResource("1_wshnu")]({
+"example_1": SubResource("Resource_ydsg3")
+})
+metadata/_custom_type_script = "uid://by7pr2lmkc3eq"
